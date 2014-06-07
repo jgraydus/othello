@@ -1,5 +1,5 @@
 (ns othello.engine
-  [:use [othello.board]])
+  [:use [othello board]])
 
 (def deltas [[-1 -1] [-1 0] [-1 1] [0 -1] [0 1] [1 -1] [1 0] [1 1]])
 
@@ -79,4 +79,7 @@
    at the indicated position on the given board"
   [board position color]
   (let [positions-to-flip (mapcat #(explore board position % color) deltas)]
-    (set-positions board (conj positions-to-flip position) color)))
+    (cond (empty? positions-to-flip) (throw (IllegalArgumentException.
+                                             (str position
+                                                  " is not a legal move")))
+          :else (set-positions board (conj positions-to-flip position) color))))
