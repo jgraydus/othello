@@ -1,7 +1,7 @@
 (ns othello.game
   [:use [othello board engine]])
 
-(defn tally-results
+(defn- tally-results
   "returns a map from color to number of board positions occupied by
    that color"
   [board]
@@ -9,7 +9,7 @@
         tally (group-by #(get-position board %) occupied-positions)]
     (apply merge (for [k (keys tally)] {k (count (k tally))}))))
 
-(defn play-game
+(defn- play-game
   "main game loop.  players is a map where the keys :white and :black
    correspond to the functions that should be called to generate that
    player's next move. pass is a boolean that indicates whether or not

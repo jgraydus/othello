@@ -32,7 +32,7 @@
   (let [replacements (apply merge (for [pos positions] {pos color}))]
     (update-in board [:data] merge replacements)))
 
-(defn in-range?
+(defn- in-range?
   "returns true if the given number is greater than or equal to lower
    and less than or equal to upper, false otherwise"
   [number lower upper]
