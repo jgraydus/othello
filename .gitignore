@@ -7,3 +7,7 @@ pom.xml.asc
 *.class
 /.lein-*
 /.nrepl-port
+src/othello/#engine.clj#
+src/othello/#game.clj#
+src/othello/.#engine.clj
+src/othello/.#game.clj
