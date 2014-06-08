@@ -42,7 +42,7 @@
 
 (defn- explore
   "if a piece placed at position can cause other pieces to flip in the direction
-   indicated by delta, then returns a sequence of all pieces that will flip.
+   indicated by delta, then returns a sequence of all positions that will flip.
    otherwise returns nil."
   [board position delta color]
   (let [opposite-color (opposite color)

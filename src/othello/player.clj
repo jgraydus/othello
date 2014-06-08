@@ -9,7 +9,4 @@
 (defn random-player
   "Chooses a move at random from the possible moves."
   [board color]
-  (let [moves (find-eligible-moves board color)
-        index (rand-int (count moves))
-        choice (first (drop index moves))]
-    choice))
+  (rand-nth (find-eligible-moves board color)))
