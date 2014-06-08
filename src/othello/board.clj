@@ -62,10 +62,18 @@
 (defn print-board
   "pretty printer for game board"
   [board]
-  (let [character {nil " " :white "O" :black "X"}
-        rng (range 0 8)]
-    (print " 01234567\n")
-    (doseq [y rng]
-      (print y)
-      (doseq [x rng] (print (character (get-position board (make-position x y)))))
-      (println))))
+  (println (board-to-string board)))
+
+
+(defn- board-to-string
+  "generates a string representation of a board"
+  [board]
+  (let [characters {nil " " :white "O" :black "X"}
+        column-numbers " 01234567\n"
+        rng (range 0 8)
+        rows (for [y rng]
+               (str y
+                (apply str (for [x rng]
+                             (characters (get-position board (make-position x y)))))
+                "\n"))]
+    (str column-numbers (apply str rows))))
