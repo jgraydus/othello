@@ -7,7 +7,7 @@ This isn't a typical game of Othello.  In order to play, you must program a play
 See the implementation of dumb-player and random-player for simple examples.
 
 ## Usage
- 
+``` 
 user> (use '[othello board engine game player])
 nil
 user> (othello-game random-player dumb-player)
@@ -59,3 +59,4 @@ user> (othello-game random-player dumb-player)
 game over  {:white 32, :black 32}
 nil
 user> 
+```
