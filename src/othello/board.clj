@@ -59,12 +59,6 @@
   [board]
   (keys (:data board)))
 
-(defn print-board
-  "pretty printer for game board"
-  [board]
-  (println (board-to-string board)))
-
-
 (defn- board-to-string
   "generates a string representation of a board"
   [board]
@@ -77,3 +71,10 @@
                              (characters (get-position board (make-position x y)))))
                 "\n"))]
     (str column-numbers (apply str rows))))
+
+(defn print-board
+  "pretty printer for game board"
+  [board]
+  (println (board-to-string board)))
+
+
