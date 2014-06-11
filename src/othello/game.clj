@@ -26,6 +26,23 @@
                       updated-board (execute-move board move color)]
                   (recur updated-board players (opposite color) false)))))
 
+(defn game-stream
+  "generates a lazy sequence of boards representing the state of the game.
+   if a player cannot move, the corresponding list item is :pass"
+  [board players color]
+  (when-let [board board]
+    (cons board
+          (lazy-seq
+           (game-stream
+            (let [eligible-moves (find-eligible-moves board color)]
+              (if (empty? eligible-moves) (if (= board :pass) nil :pass)
+                  (let [player (color players)
+                        move (player board color)]
+                    (execute-move board move color))))
+            players
+            (opposite color))))))
+
+
 (defn othello-game
   "Starts a new game.  white and black (the 'players') are functions that
    should accept a board and color and return a position which must be a
