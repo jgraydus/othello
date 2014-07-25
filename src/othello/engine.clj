@@ -6,10 +6,7 @@
 (defn opposite
   "returns :black if given :white and vice versa"
   [color]
-  (cond (= :white color) :black
-        (= :black color) :white
-        :else (throw (IllegalArgumentException.
-                      (str (if nil? "nil" color) " is not a valid color value")))))
+  (color {:white :black :black :white}))
 
 (defn- shift
   "adds delta to the position"
