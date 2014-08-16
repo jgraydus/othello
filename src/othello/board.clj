@@ -1,9 +1,11 @@
 (ns othello.board)
 
+(defrecord Position [x y])
+
 (defn make-position
   "abstracts the implementation of board positions"
   [x y]
-  [x y])
+  (Position. x y))
 
 (defn get-x
   "returns the x coordinate of the given position"
