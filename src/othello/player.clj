@@ -34,7 +34,8 @@
 (defn min-max [board color score-function depth]
   (:move (min-max-value {:score 0 :board board} color score-function depth)))
 
-
+;interesting note: with my current crappy min-max implementation, the
+;'smart' player doesn't really do much better than the random player
 (defn smart-player [board color]
   (min-max board color score-1 3))
 
@@ -45,6 +46,7 @@
      :move new-move
      :board new-board}))
 
+;TODO: fix this
 (defn min-max-value [{:keys [score move board] :as all} color score-function depth]
   (if (= 0 depth) all
       (let [apply-score (fn [original-board new-move]

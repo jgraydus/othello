@@ -19,8 +19,8 @@
   (let [possible-moves (find-eligible-moves board color)
         should-pass (empty? possible-moves)
         game-over (and pass should-pass)]
-    (print-board board)
-    (cond game-over (println "game over " (str (tally-results board)))
+    ;(print-board board)
+    (cond game-over  (tally-results board)
           should-pass (recur board players (opposite color) true)
           :else (let [move ((color players) board color)
                       updated-board (execute-move board move color)]

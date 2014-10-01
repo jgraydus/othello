@@ -10,12 +10,12 @@
 (defn get-x
   "returns the x coordinate of the given position"
   [position]
-  (position 0))
+  (:x position))
 
 (defn get-y
   "returns the y coordinate of the given position"
   [position]
-  (position 1))
+  (:y position))
 
 (defn get-position
   "returns :white or :black corresponding to the color of piece
